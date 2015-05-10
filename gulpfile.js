@@ -6,7 +6,10 @@ var colors = require('colors');
 
 gulp.task('install', function () {
     require('child_process').exec('npm install', {cwd: './app'}, function (err, stdout, stderr) {
-        return true;
+        if (err !== null){
+            gutil.log('\'' + 'npm-installer'.cyan + '\':', err);
+        }
+        gutil.log('\'' + 'npm-installer'.cyan + '\':\n', stdout);
     });
 });
 

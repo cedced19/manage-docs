@@ -9,3 +9,4 @@ app/d3dcompiler_46.dll
 *.exe
 cache/
 build/
+dist/
