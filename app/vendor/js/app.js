@@ -1,4 +1,4 @@
-angular.module('ManageDocs', ['hSweetAlert', 'ngSanitize', 'ngRoute', 'textAngular'])
+angular.module('ManageDocs', ['SweetAlert', 'ngSanitize', 'ngRoute', 'textAngular'])
 .config(['$routeProvider', function($routeProvider){
     $routeProvider
      .when('/document/:id', {
@@ -17,8 +17,8 @@ angular.module('ManageDocs', ['hSweetAlert', 'ngSanitize', 'ngRoute', 'textAngul
         redirectTo: '/'
       });
 }])
-.controller('ManageDocsDocumentCtrl', ['$scope', '$location', '$http', 'sweet', '$routeParams', function($scope, $location, $http, sweet, $routeParams) {
-        $http.get('http://localhost:7772/api/'+ $routeParams.id).success(function(data) {
+.controller('ManageDocsDocumentCtrl', ['$scope', '$location', '$windows', 'sweet', '$routeParams', function($scope, $location, $windows, sweet, $routeParams) {
+        $data.get('/'+ $routeParams.id).success(function(data) {
                         $scope.currentItem = data;
 
                         $scope.editing = false;
@@ -33,7 +33,7 @@ angular.module('ManageDocs', ['hSweetAlert', 'ngSanitize', 'ngRoute', 'textAngul
                                         confirmButtonText: "Yes, delete it!",
                                         closeOnConfirm: false
                                     }, function() {
-                                        $http.delete('http://localhost:7772/api/'+$scope.currentItem.id).success(function() {
+                                        $windows.manager.delete('/'+$scope.currentItem.id).success(function() {
                                             sweet.show('Deleted!', 'The document has been deleted.', 'success');
                                             $location.path('/');
                                         });
@@ -46,20 +46,20 @@ angular.module('ManageDocs', ['hSweetAlert', 'ngSanitize', 'ngRoute', 'textAngul
 
 
                         $scope.displayDocument = function() {
-                                $http.put('http://localhost:7772/api/'+$scope.currentItem.id, $scope.currentItem).success(function() {
+                                $windows.manager.put('http://localhost:7772/api/'+$scope.currentItem.id, $scope.currentItem).success(function() {
                                             $scope.editing = false;
                                             sweet.show('The document has been saved.', '', 'success');
                                 });
                  };
          });
 }])
-.controller('ManageDocsCreationCtrl', ['$scope', '$location', '$http', 'sweet', function($scope, $location, $http, sweet) {
+.controller('ManageDocsCreationCtrl', ['$scope', '$location', '$windows', 'sweet', function($scope, $location, $windows, sweet) {
         $scope.newItem = {
                 content: ''
         };
 
         $scope.displayDocument = function() {
-                $http.post('http://localhost:7772/api', $scope.newItem).success(function(data) {
+                $windows.manager.post('/', $scope.newItem).success(function(data) {
                     sweet.show('The document has been saved.', '', 'success');
                     $location.path('/document/' + data.id.toString());
                     }).error(function() {
@@ -67,9 +67,9 @@ angular.module('ManageDocs', ['hSweetAlert', 'ngSanitize', 'ngRoute', 'textAngul
                 });
         };
 }])
-.controller('ManageDocsListCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
+.controller('ManageDocsListCtrl', ['$scope', '$location', '$windows', function($scope, $location, $windows) {
         $scope.loading = true;
-        $http.get('http://localhost:7772/api').success(function(data) {
+        $windows.manager.get('/').success(function(data) {
             $scope.items = data;
             $scope.short = true;
             $scope.loading = false;
@@ -79,7 +79,7 @@ angular.module('ManageDocs', ['hSweetAlert', 'ngSanitize', 'ngRoute', 'textAngul
             };
             
             $scope.advancedSearch = function () {
-                $http.get('http://localhost:7772/api/long').success(function(data) {
+                $windows.manager.get('/long').success(function(data) {
                     $scope.items = data;
                     $scope.short = false;
                 }).error(function() {

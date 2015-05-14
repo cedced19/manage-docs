@@ -13,12 +13,6 @@
     "toolbar": false
   },
   "chromium-args": "--child-clean-exit",
-  "dependencies": {
-    "body-parser": "^1.10.1",
-    "express": "^4.11.0",
-    "sails-disk": "^0.10.4",
-    "waterline": "^0.10.12"
-  },
   "author": {
     "name": "Cédric",
     "email": "cedced19@gmail.com",

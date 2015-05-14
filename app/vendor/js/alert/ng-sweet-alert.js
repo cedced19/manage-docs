@@ -1,7 +1,7 @@
 (function(global, angular) {
     'use strict';
 
-    var sweet = angular.module('hSweetAlert', []);
+    var sweet = angular.module('SweetAlert', []);
 
     var al = global.swal;
 
