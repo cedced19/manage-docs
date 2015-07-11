@@ -2,17 +2,24 @@
 
 __Work in progress__
 
-A deskop application to manage your economic documents.
+At the origin this software had to be a desktop application to manage your economic documents, but now it'll be a desktop application to encrypt and decrypt directory and any necessary subdirectories.
 
-You will be able to:
-* add pdf, png, jpg and other images files
-* write documents fast
-* order by tags, date or other
-* use your document without the software
+## Installation
+
+1. [Download](https://github.com/cedced19/manage-docs/releases/latest)
+2. Extract
+3. Execute `manage-docs.exe`
+
+![Demo](demo.png)
 
 ## To compile
 
 ```
 npm install
 gulp
+```
+or
+```
+npm install
+gulp dist-win
 ```

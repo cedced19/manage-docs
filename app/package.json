@@ -4,24 +4,13 @@
   "version": "0.0.0",
   "single-instance": true,
   "window": {
-    "title": "Manage Docs",
+    "title": "'Manage Docs",
     "icon": "favicon.png",
-    "width": 750,
-    "height": 650,
-    "min_width": 750,
-    "min_height": 650,
+    "width": 550,
+    "height": 450,
+    "min_width": 550,
+    "min_height": 450,
     "toolbar": false
   },
-  "chromium-args": "--child-clean-exit",
-  "author": {
-    "name": "Cédric",
-    "email": "cedced19@gmail.com",
-    "url": "https://github.com/cedced19"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://cedced19.github.io/license/"
-    }
-  ]
+  "chromium-args": "--child-clean-exit"
 }

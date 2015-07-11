@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>Manage Docs</title>
-        <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="vendor/css/bootstrap.css">
-        <link rel="stylesheet" href="vendor/css/font-awesome.css">
-        <link rel="stylesheet" href="vendor/css/sweet-alert.css">
-        <link rel="stylesheet" href="vendor/css/text-angular.css">
-        <link rel="stylesheet" href="vendor/css/main.css">
+        <!-- build:css vendor/css/styles.css -->
+        <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+        <link href="vendor/css/ripples.min.css" rel="stylesheet">
+        <link href="vendor/css/material-wfont.min.css" rel="stylesheet">
+        <link href="vendor/css/main.css" rel="stylesheet">
+        <!-- endbuild -->
+        <meta charset="utf-8">
     </head>
-    <body ng-app="ManageDocs">
+    <body >
         <div class="container">
-            <div ng-view></div>
-            <noscript>
-            <h1>Houston, we have a problem.</h1>
-            <p>You must enable Javascript to use this applications.</p>
-            </noscript>
+            
+            <h1>Manage Docs</h1>
+            
         </div>
-            <script type="text/javascript" src="data-manager/index.js"></script>
-            <script type="text/javascript" src="vendor/js/alert/sweet-alert.js"></script>
-            <script type="text/javascript" src="vendor/js/angular.min.js"></script>
-            <script type="text/javascript" src="vendor/js/alert/ng-sweet-alert.js"></script>
-            <script type="text/javascript" src="vendor/js/angular-sanitize.min.js"></script>
-            <script type="text/javascript" src="vendor/js/angular-routes.min.js"></script>
-            <script type="text/javascript" src="vendor/js/edit/text-angular-rangy.min.js"></script>
-            <script type="text/javascript" src="vendor/js/edit/text-angular-sanitize.min.js"></script>
-            <script type="text/javascript" src="vendor/js/edit/text-angular.min.js"></script>
-            <script type="text/javascript" src="vendor/js/app.js"></script>
+        <!-- build:js vendor/js/scripts.js -->
+        <script src="vendor/js/jquery.min.js"></script>
+        <script src="vendor/js/bootstrap.min.js"></script>
+        <script src="vendor/js/ripples.min.js"></script>
+        <script src="vendor/js/material.min.js"></script>
+        <script src="vendor/js/right-click.js"></script>
+        
+        <script src="vendor/js/app.js"></script>
+        <!-- endbuild -->
     </body>
 </html>
