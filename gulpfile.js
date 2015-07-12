@@ -42,7 +42,13 @@ gulp.task('html', function () {
 
 gulp.task('minify', ['html', 'copy-fonts', 'copy-favicon', 'copy-package']);
 
-gulp.task('nw', ['minify'], function () {
+gulp.task('install', function () {
+    if (!fs.existsSync('./minified/node_modules')) {
+        require('child_process').exec('npm install', {cwd: './minified'});
+    }
+});
+
+gulp.task('nw', ['minify', 'install'], function () {
 
     var nw = new builder({
         files: ['./minified/**/**', '!./minified/vendor/css/*.css0'],
@@ -58,7 +64,7 @@ gulp.task('nw', ['minify'], function () {
     });
 });
 
-gulp.task('nw-win', ['minify'], function () {
+gulp.task('nw-win', ['minify', 'install'], function () {
 
     var nw = new builder({
         files: ['./minified/**/**', '!./minified/vendor/css/*.css0'],

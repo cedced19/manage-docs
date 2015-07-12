@@ -1,7 +1,5 @@
 # Manage Docs
 
-__Work in progress__
-
 At the origin this software had to be a desktop application to manage your economic documents, but now it'll be a desktop application to encrypt and decrypt directory and any necessary subdirectories.
 
 ## Installation
