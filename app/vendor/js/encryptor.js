@@ -13,7 +13,7 @@
           join = require('path').join,
           fe = require('./node_modules/file-encryptor');
 
-    return function (root, key, mode, cipher) {
+    return function (root, key, mode, cipher, cb) {
         var result = [],
              queue = ['/'];
         while (queue.length) {
@@ -26,20 +26,25 @@
                 } else {
                     if (mode == 'encrypt') {
                         fe.encryptFile(f, f + '.dat', key, {algorithm: cipher}, function (err) {
-                            if (!err) {
-                                fs.remove(f);
+                            if (err) {
+                                cb(err);
+                                return;
                             }
+                            fs.remove(f);
                         });
                     } else if (/.dat/i.test(entry)) {
                         fe.decryptFile(f, f.replace(/.dat/, ''), key, {algorithm: cipher},  function (err) {
-                            if (!err) {
-                                fs.remove(f);
+                            if (err) {
+                                cb(err);
+                                return;
                             }
+                            fs.remove(f);
                         });
                     }
                 }
             });
         }
-        return result;
+        cb(false);
+        return;
     };
 }));

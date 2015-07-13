@@ -83,31 +83,31 @@ gulp.task('nw-win', ['minify', 'install'], function () {
 
 
 gulp.task('dist-win', ['nw-win'], function () {
-    return gulp.src('build/vote-nopaper/win32/**/**')
+    return gulp.src('build/manage-docs/win32/**/**')
         .pipe(zip('Windows.zip'))
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('dist-osx32', ['nw'], function () {
-    return gulp.src('build/vote-nopaper/osx32/**/**')
+    return gulp.src('build/manage-docs/osx32/**/**')
         .pipe(zip('OSX32.zip'))
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('dist-osx64', ['nw'], function () {
-    return gulp.src('build/vote-nopaper/osx64/**/**')
+    return gulp.src('build/manage-docs/osx64/**/**')
         .pipe(zip('OSX64.zip'))
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('dist-linux32', ['nw'], function () {
-    return gulp.src('build/vote-nopaper/linux32/**/**')
+    return gulp.src('build/manage-docs/linux32/**/**')
         .pipe(zip('Linux32.zip'))
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('dist-linux64', ['nw'], function () {
-    return gulp.src('build/vote-nopaper/linux64/**/**')
+    return gulp.src('build/manage-docs/linux64/**/**')
         .pipe(zip('Linux64.zip'))
         .pipe(gulp.dest('dist/'));
 });
